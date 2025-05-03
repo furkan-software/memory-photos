@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery/jquery-3.7.1.js"></script>
+    <script src="jquery/jquery-ui.js"></script>
+
+    <script>
+        $(function(){
+            function getSize(){
+            var width = $(window).width();
+            var height = $(window).height();
+            alert("Genişlik: " + width + "px\nYükseklik: " + height + "px");}
+
+            
+
+            var orginalId = [];
+            var first = true;
+            function updateId() {
+                if ($(window).width() < 1276) {
+                    var durum = true;
+                    for(let i = 0;i<=$("body div.img_border").length;i++){
+                        if (first){
+                            orginalId[i] =  $("body div.img_border").eq(i).attr("id");
+                        }
+                        if(durum){
+                            $("body div.img_border").eq(i).attr("id","right");
+                            durum = false;}
+                        else{
+                            $("body div.img_border").eq(i).attr("id","left");
+                            durum = true; 
+                        }   
+                    }
+                    if(first);
+                        first = false;
+                }
+                else{
+                    if (orginalId.length > 1){
+                        for(let i = 0;i<=$("body div.img_border").length;i++){
+                            $("body div.img_border").eq(i).attr("id",orginalId[i]);
+
+                        }
+                    }
+                }
+            }
+
+            updateId();
+            $(window).resize(function(){
+                updateId();
+            });
+
+        });
+    </script>
+
+    <style>
+        *{box-sizing: border-box;}
+        body{background-color: rgb(73, 66, 66);display: flex;justify-content:space-evenly;align-items: center;padding:30px;
+        flex-wrap: wrap;}
+
+        .img_border{width: 400px;height: 550px;background-color: whitesmoke;padding:10px;
+        display: flex;justify-content: center;align-items: center;flex-wrap: wrap;
+        box-shadow: 15px 15px 5px rgba(0, 0, 0, 0.4);
+        margin-top: 40px;filter: brightness(0.5); /* Tüm img_border divleri karanlık */
+        transition: 0.3s;}
+        .img_border:hover{ transition: 0.3s;filter: brightness(0.9); /* Hover yapıldığında daha parlak */
+            box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.7);
+            }
+        
+
+        #right{transform: rotate(7deg);z-index:2}
+        #left{transform: rotate(-8deg);z-index:1}
+        #middle{transform: rotate(-3deg);z-index:0;}
+        #img{background-position: right;background-size: cover;background-repeat: no-repeat;
+            width:350px;height: 400px;}
+        .img1 {background-image: url(resim/m29.jpg);}
+        .img2 {background-image: url(resim/m28.jpg);}
+        .img3 {background-image: url(resim/m27.jpg);}
+        .img4 {background-image: url(resim/m26.jpg);}
+        .img5 {background-image: url(resim/m25.jpg);}
+        .img6 {background-image: url(resim/m24.jpg);}
+        .img7 {background-image: url(resim/m13.jpg);}
+        .img8 {background-image: url(resim/m14.jpg);}
+        .img9 {background-image: url(resim/m15.jpg);}
+        .img10{background-image: url(resim/m16.jpg);}
+        .img11{background-image: url(resim/m17.jpg);}
+        .img12{background-image: url(resim/m18.jpg);}
+
+        p{width:93%;height: auto;text-align:start;font-size: 20px;
+            font-family:'Times New Roman', Times, serif;}
+
+
+
+    </style>
+</head>
+<body>
+
+    <div class="img_border" id="left">
+        <div id="img" class="img1"></div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+           Quas maiores delectus temporibus, labore cumque quis saepe iure
+            exercitationem nulla similique!</p>
+    </div>
+
+    <div class="img_border" id="middle">
+        <div id="img" class="img2"></div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+           Quas maiores delectus temporibus, labore cumque quis saepe iure
+            exercitationem nulla similique!</p>
+    </div>
+
+    <div class="img_border" id="right">
+        <div id="img" class="img3"></div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+           Quas maiores delectus temporibus, labore cumque quis saepe iure
+            exercitationem nulla similique!</p>
+    </div>
+
+    <div class="img_border" id="left">
+        <div id="img" class="img4"></div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+           Quas maiores delectus temporibus, labore cumque quis saepe iure
+            exercitationem nulla similique!</p>
+    </div>
+
+    <div class="img_border"id="middle" >
+        <div id="img" class="img5"></div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+           Quas maiores delectus temporibus, labore cumque quis saepe iure
+            exercitationem nulla similique!</p>
+    </div>
+
+    <div class="img_border" id="right">
+        <div id="img" class="img6"></div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+           Quas maiores delectus temporibus, labore cumque quis saepe iure
+            exercitationem nulla similique!</p>
+    </div>
+
+    <div class="img_border" id="left">
+        <div id="img" class="img7"></div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+           Quas maiores delectus temporibus, labore cumque quis saepe iure
+            exercitationem nulla similique!</p>
+    </div>
+
+    <div class="img_border" id="middle">
+        <div id="img" class="img8"></div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+           Quas maiores delectus temporibus, labore cumque quis saepe iure
+            exercitationem nulla similique!</p>
+    </div>
+
+    <div class="img_border" id="right">
+        <div id="img" class="img9"></div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+           Quas maiores delectus temporibus, labore cumque quis saepe iure
+            exercitationem nulla similique!</p>
+    </div>
+
+    <div class="img_border" id="left">
+        <div id="img" class="img10"></div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+           Quas maiores delectus temporibus, labore cumque quis saepe iure
+            exercitationem nulla similique!</p>
+    </div>
+
+    <div class="img_border"id="middle" >
+        <div id="img" class="img11"></div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+           Quas maiores delectus temporibus, labore cumque quis saepe iure
+            exercitationem nulla similique!</p>
+    </div>
+
+    <div class="img_border" id="right">
+        <div id="img" class="img12"></div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+           Quas maiores delectus temporibus, labore cumque quis saepe iure
+            exercitationem nulla similique!</p>
+    </div>
+    
+</body>
+</html>
